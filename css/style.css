@@ -32,7 +32,31 @@ body{
     color: var(--white);
     text-decoration: none;
     padding: 12px 32px;
-    border-radius: 8px;
+    border-radius: 16px;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+}
+
+.outlineBtn::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 0%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: all .2s ease-in-out;
+}
+
+.outlineBtn:hover{
+    color: var(--bg2);
+}
+
+.outlineBtn:hover::after{
+    height: 100%;
 }
 
 h2{
@@ -216,30 +240,26 @@ h2{
     font-family: "fot-chiaro-std", sans-serif;
 }
 
-.horraireTable{
+.horraireContent .horraireFlex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     width: 100%;
 }
 
-.horraireTable table{
-    width: 100% ;
-    border: none;
-    border-spacing: 0px;
+.horraireContent .horraireFlex div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:  12px;
 }
 
-.horraireTable table thead{
-    font-weight: 800;
-}
-
-.horraireTable table td{
-    padding: 12px 5px;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: none;
-  }
-  
-tbody tr:nth-child(even) {
-    background-color: #ffffff06;
+.horraireContent .horraireFlex div .day{
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 
@@ -352,7 +372,7 @@ tbody tr:nth-child(even) {
 }
 
 .foodCard p{
-    font-size: clamp(0.5vw, 18px, 4vw);
+    font-size: clamp(0.5vw, 15px, 4vw);
 }
 
 .foodCard span{
@@ -541,7 +561,10 @@ footer .links ul li{
         height: 60vh;
     }
     h2{
-        font-size: 16px;
+        font-size: 24px;
+    }
+    h3{
+        font-size: 18;
     }
     .chefSection .content{
         flex-direction: column;
