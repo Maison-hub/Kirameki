@@ -1,0 +1,564 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body{
+    font-weight: 700;
+    font-style: normal;
+    width: 100%;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: var(--bg);
+}
+
+:root{
+    --white: #FCFCFC;
+    --bg: #313131;
+    --bg2: #2B2B2B;
+    --radius: 32px;
+    --sectionPadding: 64px
+}
+
+.outlineBtn{
+    border: 1px solid var(--white);
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+}
+
+h2{
+    font-size: 34px;
+}
+
+.websiteBg{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: var(--bg);
+}
+
+.heroSection{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative  ;
+    background-color: var(--bg);
+    overflow: hidden;
+}
+
+.heroSection .content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.heroSection .content::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    z-index: 0;
+    opacity: 0.8;
+    background-image: url('../image/noiseFond.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: var(--radius);
+    z-index: -2;
+}
+
+.heroSection .content::after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: var(--sectionPadding);
+    top: var(--sectionPadding);
+    height: 100%;
+    width: calc(100% - var(--sectionPadding));
+    opacity: .15;
+    background-image: url('../image/lettres.svg');
+    z-index: -1;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.heroSection .content > *{
+    position: relative;
+} 
+
+
+.heroSection .content .text{
+    color: var(--white);
+    height: 100%;
+    padding: 0px var(--sectionPadding);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.heroSection .content .image{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: end;
+    padding: 20px;
+    min-width: 300px;
+}
+
+.heroSection .content .image img{
+    width: 100%;
+    padding: 20px;
+}
+
+.heroSection .content .text .title{
+    font-size: 12vw;
+    font-family: "fot-chiaro-std", sans-serif;
+}
+.heroSection .content .text .element p{
+    font-size: clamp(10px, 2vw, 20px);
+}
+
+.heroSection .content .text .element{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 16px;
+    padding-left: 5px;
+    font-size: clamp(10px, 2vw, 20px);
+}
+
+.heroSection .content .loc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.heroSection .content .loc img{
+    height: 3vh;
+    min-height: 16px;
+}
+
+.heroSection .content .text .arrow{
+    position: relative;
+    height: 16vh;
+    width: 32px;
+    overflow: hidden;
+}
+
+.heroSection .content .text .arrow::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("../image/arrow.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: arrowDown 1.2s ease-in-out 0s infinite normal;
+} 
+
+@keyframes arrowDown{
+    0%{
+        top: -100%;
+    }
+    80%, 100%{
+        top: 100%;
+    }
+}
+
+
+.sectionHorraire{
+    padding: 20px;
+    background-color: var(--bg);
+    color: var(--white);
+}
+
+.horraireContent{
+    width: 100%;
+    padding: var(--sectionPadding);
+    background-color: var(--bg2);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 32px;
+}
+
+.horraireContent h2{
+    font-family: "fot-chiaro-std", sans-serif;
+}
+
+.horraireTable{
+    width: 100%;
+}
+
+.horraireTable table{
+    width: 100% ;
+    border: none;
+    border-spacing: 0px;
+}
+
+.horraireTable table thead{
+    font-weight: 800;
+}
+
+.horraireTable table td{
+    padding: 12px 5px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: none;
+  }
+  
+tbody tr:nth-child(even) {
+    background-color: #ffffff06;
+}
+
+
+
+
+.sectionPlat{
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    background-color: var(--bg);
+    padding: 20px;
+}
+
+.sectionPlat .platContainer{
+    border-radius: var(--radius);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg2);
+    padding: var(--sectionPadding);
+    gap: 32px;
+}
+
+.sectionPlat .platContainer h2{
+    font-family: "fot-chiaro-std", sans-serif;
+}
+
+.sectionPlat .platContainer .sectionTitre{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sectionPlat .platContainer .sectionTitre .unite{
+    color: #7a7a7a;
+}
+
+
+.sectionPlat .platContainer img{
+    width: calc((100vw / 10));
+    min-width: 100px;
+}
+
+.sectionPlat .platContainer .platSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg2);
+    width: 100%;
+    border-bottom: 2px solid var(--bg);
+    padding-bottom: 32px;
+}
+
+.sectionPlat .platContainer .platSection:last-child{
+    border: none;
+    padding-bottom: 0;
+}
+
+.sectionPlat .platContainer .platSection:first-child{
+    border-top-right-radius: var(--radius);
+    border-top-left-radius: var(--radius);
+}
+
+.sectionPlat .platContainer .platSection a{
+    font-size: 1.5em;
+    height: 1.2em;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.sectionPlat .platContainer .platSection .flexSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.sectionPlat .line{
+    width: 80%;
+    height: 2px;
+    background-color: var(--bg);
+}
+
+.foodCard{
+    padding: 10px;
+    border-radius: 18px;
+    width: calc(100%/5);
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 10px;
+    gap: 12px;
+}
+
+.foodCard .name{
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.foodCard p{
+    font-size: clamp(0.5vw, 18px, 4vw);
+}
+
+.foodCard span{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.foodCard span .prix{
+    font-size: clamp(2vw, 22px, 4vw);
+    color: var(--white);
+    white-space: nowrap;
+}
+
+.foodCard span .unite{
+    font-size: clamp(1.5vw, 18px, 3.5vw); 
+    color: #7a7a7a;
+    white-space: nowrap;
+}
+
+.gallery{
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery img{
+    transform: scale(.9);
+    border-radius: 32px;
+}
+
+.gallery .horizontal{
+    width: 30%;
+    min-width: 150px;
+}
+
+.gallery .vertical{
+    width: 20%;
+    min-width: 100px;
+}
+
+
+
+
+.chefSection{
+    padding: 20px;
+    background-color: var(--bg);
+}
+
+.chefSection .content{
+    padding-top: var(--sectionPadding);
+    padding-left: var(--sectionPadding);
+    padding-right: var(--sectionPadding);
+    padding-bottom: 0;
+    width: 100%;
+    border-radius: var(--radius);
+    background-color: var(--bg2);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    color: var(--white);
+    gap: var(--sectionPadding);
+    flex-wrap: wrap;
+}
+
+.chefSection .content .text{
+    padding-bottom: var(--sectionPadding);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 60%;
+}
+
+.chefSection .content .text h2{
+    font-family: "fot-chiaro-std", sans-serif;
+}
+
+.chefSection .content .text p{
+    line-height: 2em;
+}
+
+.chefSection .content img{
+    width: 15vw;
+    min-width: 160px;
+}
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--bg);
+}
+
+footer .content{
+    padding: var(--sectionPadding);
+    background-color: var(--bg2);
+    border-top-right-radius: var(--radius);
+    border-top-left-radius: var(--radius);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+footer .content>img{
+    width: 10vw;
+    max-width: 120px;
+    min-width: 34px;
+}
+
+footer .content .socialMedia{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+footer .content .socialMedia img{
+    width: 5vw;
+    height: 5vw;
+    min-width: 18px;
+    min-height: 18px;
+    max-width: 32px;
+    max-height: 32px;
+}
+
+footer a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+footer .links{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+footer .links ul{
+    list-style-type: none;
+}
+
+footer .links ul li{
+    padding: 5px;
+}
+
+
+
+
+
+
+@media screen and (max-width: 600px){
+    :root{
+        --sectionPadding: 24px;
+    }
+    p{
+        font-size: 12px;
+    }
+    .outlineBtn{
+        padding: 8px 16px;
+    }
+    .foodCard{
+        padding: 5px;
+        margin: 5px;
+    }
+    .heroSection{
+        height: 60vh;
+    }
+    h2{
+        font-size: 16px;
+    }
+    .chefSection .content{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    table td{
+        font-size: 12px;
+    }
+    .gallery img{
+        border-radius: 16px;
+    }
+
+    footer a{
+        font-size: 12px;
+    }
+    footer .content .socialMedia{
+        flex-direction: column;
+    }
+}
